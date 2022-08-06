@@ -12,6 +12,7 @@ type Expenses struct {
 	Type        string `json:"type" binding:"required"`
 	Amount      int    `json:"amount" binding:"required"`
 	Description string `json:"description" binding:"required"`
+	Date        string `json:"date" binding:"required"`
 }
 
 var balance int = 0
@@ -31,7 +32,7 @@ func CreateRecord(c *gin.Context) {
 	newRecord.ID = uuid.New().String()
 	calculateBalance(newRecord.Type, newRecord.Amount, &balance)
 	records = append(records, newRecord)
-	c.IndentedJSON(http.StatusCreated, gin.H{"message": "Record Added", "balance": balance})
+	c.IndentedJSON(http.StatusCreated, gin.H{"message": "Record Added", "record": newRecord, "balance": balance})
 	return
 }
 
@@ -42,7 +43,11 @@ func DeleteRecordById(c *gin.Context) {
 		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Cannot Find Record"})
 		return
 	}
-	balance -= records[index].Amount
+	if records[index].Type == "income" {
+		balance -= records[index].Amount
+	} else {
+		balance += records[index].Amount
+	}
 	records = append(records[:index], records[index+1:]...)
 	return
 }
