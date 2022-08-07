@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, Record } from "./pages"
+import { Home, Record, Task } from "./pages"
 
 
 function App() {
@@ -7,7 +7,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/record" element={<Record />} />
+        <Route path="/expenses" element={<Record />} />
+        <Route path="/tasks" element={<Task />} />
       </Routes>
     </BrowserRouter>
   );
