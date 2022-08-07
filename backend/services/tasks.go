@@ -9,9 +9,9 @@ import (
 
 type Task struct {
 	ID       string `json:"id,omitempty"`
-	Task     string `json:"type" binding:"required"`
-	Assignee string `json:"amount" binding:"required"`
-	Done     bool   `json:"description" binding:"required"`
+	Task     string `json:"task" binding:"required"`
+	Assignee string `json:"assignee" binding:"required"`
+	Done     bool   `json:"done"`
 	Date     string `json:"date" binding:"required"`
 }
 
