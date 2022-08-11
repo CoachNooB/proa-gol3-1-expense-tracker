@@ -36,7 +36,7 @@ export const AddTask = (props: any) => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const respData = await fetch(`http://localhost:5000/api/v1/tasks`, {
+        const respData = await fetch(`https://task-expense-tracker-backend.herokuapp.com/api/v1/tasks`, {
             method: "POST",
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify(formValue)

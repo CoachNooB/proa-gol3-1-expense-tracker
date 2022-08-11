@@ -10,7 +10,7 @@ export const Record = () => {
   const [newRequest, setNewRequest] = useState(false);
 
   const getRecords = async () => {
-    const respData = await fetch(`http://localhost:5000/api/v1/expenses`, { method: "GET" })
+    const respData = await fetch(`https://task-expense-tracker-backend.herokuapp.com/api/v1/expenses`, { method: "GET" })
     if(respData.ok) {
       const data = await respData.json();
       console.log(data);

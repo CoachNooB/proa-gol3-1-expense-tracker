@@ -9,7 +9,7 @@ export const Task = () => {
   const [newRequest, setNewRequest] = useState(false);
 
   const getTasks = async () => {
-    const respData = await fetch(`http://localhost:5000/api/v1/tasks`, { method: "GET" })
+    const respData = await fetch(`https://task-expense-tracker-backend.herokuapp.com/api/v1/tasks`, { method: "GET" })
     if(respData.ok) {
       const data = await respData.json();
       console.log(data);

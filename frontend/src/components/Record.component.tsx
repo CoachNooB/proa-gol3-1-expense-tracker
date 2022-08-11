@@ -35,7 +35,7 @@ export const Record = ({...props}) => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const respData = await fetch(`http://localhost:5000/api/v1/expenses/${record.id}`, {
+        const respData = await fetch(`https://task-expense-tracker-backend.herokuapp.com/api/v1/expenses/${record.id}`, {
             method: "PUT",
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify(formValue)
@@ -48,7 +48,7 @@ export const Record = ({...props}) => {
 
     const handleDelete =async (e: any) => {
         e.preventDefault();
-        const respData = await fetch(`http://localhost:5000/api/v1/expenses/${record.id}`, {
+        const respData = await fetch(`https://task-expense-tracker-backend.herokuapp.com/api/v1/expenses/${record.id}`, {
             method: "DELETE",
             headers: { 'Content-Type': "application/json" },
         });
